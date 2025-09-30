@@ -86,8 +86,8 @@ cd afuturestory-assignment
        created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
    );
    
-   -- Enable Row Level Security
-   ALTER TABLE organizations ENABLE ROW LEVEL SECURITY;
+   -- DISABLE Row Level Security
+   ALTER TABLE organizations DISABLE ROW LEVEL SECURITY;
    
    -- Create policy to ensure users can only access their own organizations
    CREATE POLICY "Users can only access their own organizations" ON organizations
