@@ -101,8 +101,8 @@ const Login = () => {
           color: '#4b5563'
         }}>
           <strong>Demo Credentials:</strong><br />
-          Email: demo@example.com<br />
-          Password: demo123456
+          Email: de@teml.net<br />
+          Password: pass1234
         </div>
       </div>
     </div>
