@@ -57,14 +57,15 @@ CREATE TABLE organizations (
 - **Python** (v3.8 or higher)
 - **Supabase Account** (free tier available)
 
-## 🔧 Setup Instructions
+## 🔧 Setup Instructions 
 
 ### 1. Clone the Repository
 ```bash
 git clone <repository-url>
-cd organization-manager
+cd afuturestory-assignment
 ```
 
+### (Step 2, can be skipped if configured with environment variables from the files provided in the mail)
 ### 2. Supabase Setup
 
 1. **Create a Supabase Project**:
@@ -85,8 +86,8 @@ cd organization-manager
        created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
    );
    
-   -- Enable Row Level Security
-   ALTER TABLE organizations ENABLE ROW LEVEL SECURITY;
+   -- DISABLE Row Level Security
+   ALTER TABLE organizations DISABLE ROW LEVEL SECURITY;
    
    -- Create policy to ensure users can only access their own organizations
    CREATE POLICY "Users can only access their own organizations" ON organizations
@@ -121,7 +122,7 @@ cd organization-manager
    pip install -r requirements.txt
    ```
 
-4. **Configure environment variables**:
+4. **Configure environment variables** :
    ```bash
    cp .env.example .env
    ```
@@ -206,7 +207,7 @@ Once you've created your demo account, test these features:
 - **Loading States**: Smooth loading indicators during API calls
 │   ├── requirements.txt     # Python dependencies
 │   ├── .env.example         # Environment variables template
-│   └── .env                 # Environment variables (create this)
+│   └── .env                 # Environment variables (create this or copy-paste from the mail received)
 ├── frontend/
 │   ├── public/
 │   │   ├── index.html       # HTML template
@@ -229,14 +230,14 @@ Once you've created your demo account, test these features:
 │   │   └── index.css        # Global styles
 │   ├── package.json         # Node.js dependencies
 │   ├── .env.example         # Environment variables template
-│   └── .env                 # Environment variables (create this)
+│   └── .env                 # Environment variables (create this or copy-paste from the mail received)
 └── README.md               # This file
 ```
 
 ## 🔐 Security Features
 
 - **JWT Authentication**: Secure token-based authentication via Supabase
-- **Row Level Security**: Database-level security ensuring data isolation
+- **Row Level Security**: Database-level security ensuring data isolation 
 - **Input Validation**: Both client and server-side validation
 - **CORS Configuration**: Properly configured cross-origin requests
 - **Error Handling**: Secure error messages without exposing sensitive data
@@ -270,9 +271,9 @@ Once you've created your demo account, test these features:
 ### Organizations
 - `GET /organizations` - Get all user's organizations
 - `POST /organizations` - Create new organization
-- `GET /organizations/{id}` - Get specific organization
-- `PUT /organizations/{id}` - Update organization
-- `DELETE /organizations/{id}` - Delete organization
+- `GET /organizations/{organization_id}` - Get specific organization
+- `PUT /organizations/{organization_id}` - Update organization
+- `DELETE /organizations/{organization_id}` - Delete organization
 - `GET /organizations/search/{query}` - Search organizations
 
 ### Utility
@@ -328,10 +329,11 @@ Future improvements could include:
 - **File Uploads**: No file upload functionality yet
 - **Pagination**: No pagination for large organization lists
 - **Offline Support**: No offline functionality
+- **When the user registers(verifies email) and signed in for the first time, there's error showcased in the frontend because the fetchOrganizations() is getting triggered even before the token is set, it is resolved by itself when logged in again.**
 
 ### Development Notes
 - **Demo Credentials**: The demo credentials are for development only
-- **Environment Variables**: Ensure all environment variables are set correctly
+- **Environment Variables**: Ensure all environment variables are set correctly (Both Frontend & Backend environment variables is shared in the mail for convenience)
 - **CORS**: CORS is configured for localhost development
 
 ## 📞 Support & Contact
